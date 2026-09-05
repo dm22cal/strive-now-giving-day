@@ -250,7 +250,7 @@ h3 {
     font-size: 16px;
 }
 
-gala-form button {
+.gala-form button {
     background-color: var(--primary-purple);
     color: var(--white);
     border: none;
@@ -261,6 +261,65 @@ gala-form button {
     font-weight: 600;
     cursor: pointer;
 }
+
+/* Final CTA Section */
+
+.final-cta {
+    background-color: var(--dark-navy);
+    color: var(--white);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.final-cta-content {
+    maax-width: 800px;
+    margin: 0 auto;
+}
+
+.final-cta-content h2 {
+    font-size: 48px;
+    margin: 0 0 16px;
+}
+
+.fianl-cta-content p {
+    font-size: 18px;
+    margin: 0 auto 32px;
+}
+
+/* Footer */
+
+.site-footer {
+    background-color: #0d0c1a;
+    color: var(--white);
+    padding: 40px 20px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: "Anton", sans-serif;
+    font-size: 28px;
+    margin: 0 0 16px;
+}
+
+.footer-content p {
+    margin: 8px 0;
+}
+
+.footer-content a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+
 
 
 
