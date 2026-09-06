@@ -27,3 +27,23 @@ setInterval(() => {
 }, 5000);
 
 }
+
+// Donation Counter
+
+const donationCount = document.querySelector("#donation-count");
+
+function animateCounter(target) {
+    let current = 0;
+
+    const interval = setInterval(() => {
+        current++;
+
+        donationCount.textContent = current;
+
+        if (current >= target) {
+            clearInterval(interval);
+        }
+    }, 20);
+}
+
+animateCounter(247);
