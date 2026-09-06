@@ -46,12 +46,55 @@ h3 {
     justify-content: center;
 
     padding: 80px 20px;
+    position: relative;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.hero-slide:nth-child(1) {
+    background-image: url("../images/hero-1.JPG");
+}
+
+.hero-slide:nth-child(2) {
+    background-image: url("../images/hero-2.JPG");
+}
+
+.hero-slide:nth-child(3) {
+    background-image: url("../images/hero-3.JPG");
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(23,21,47,0.40);
+    z-index: 1;
 }
 
 .hero-content {
     width: 100%;
     max-width: 900px;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h1 {
@@ -318,6 +361,8 @@ h3 {
 .footer-content a:hover {
     text-decoration: underline;
 }
+
+
 
 
 
