@@ -8,6 +8,7 @@ const donationUrl =
     donateButtons.forEach(button => {
         button.href = donationUrl;
         button.target = "_blank";
+        button.rel = "noopener noreferrer";
     });
 
     //Hero Carousel
@@ -16,7 +17,10 @@ const heroSlides = document.querySelectorAll(".hero-slide");
 
 let currentSlide = 0;
 
-if (heroSlides.length > 1) {
+if (
+    heroSlides.length > 1 &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
 
 setInterval(() => {
     heroSlides[currentSlide].classList.remove("active");
@@ -46,7 +50,15 @@ function animateCounter(target) {
     }, 20);
 }
 // Test Number
-animateCounter(247);
+const preferReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (preferReducedMotion) {
+    donationCount.textContent = 247;
+} else {
+    animateCounter(247);
+}
 
 
 //Gala Signup Form
