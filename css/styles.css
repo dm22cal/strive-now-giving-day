@@ -370,6 +370,39 @@ h3 {
     text-decoration: underline;
 }
 
+/* Mobile Styles */
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 44px;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding: 60px 20px;
+    }
+
+    .gift-cards {
+        flex-direction: column;
+    }
+
+    .gala-form {
+        flex-direction: column;
+    }
+
+    .gala-form input,
+    .gala-form button {
+        width: 100%;
+    }
+
+    .why-now-content h2, 
+    .gift-builds-content > h2,
+    .gala-signup-content h2,
+    .final-cta-content h2 {
+        font-size: 40px;
+    }
+}
+
 
 
 
