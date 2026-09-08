@@ -61,16 +61,3 @@ if (preferReducedMotion) {
 }
 
 
-//Gala Signup Form
-
-const galaForm = document.querySelector(".gala-form");
-
-galaForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    galaForm.innerHTML = `
-    <p class="gala-success">
-        You're on the list. See you in April.
-    </p>
-`;
-});
