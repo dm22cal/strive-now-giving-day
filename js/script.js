@@ -9,6 +9,24 @@ const donationUrl =
         button.href = donationUrl;
         button.target = "_blank";
         button.rel = "noopener noreferrer";
+
+        button.addEventListener("click", async () => {
+            try {
+                const response = await fetch("/.netlify/functions/counter", {
+                    method: "POST",
+                });
+
+                if (!response.ok) {
+                    throw new Error("Counter update failed");
+                }
+
+                const data = await response.json();
+
+                donationCount.textContent = data.count;
+            } catch (error) {
+                console.error("Unable to update donation count:", error);
+            }
+        });
     });
 
     //Hero Carousel
@@ -49,15 +67,25 @@ function animateCounter(target) {
         }
     }, 20);
 }
-// Test Number
-const preferReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-).matches;
 
-if (preferReducedMotion) {
-    donationCount.textContent = 247;
-} else {
-    animateCounter(247);
+async function loadDonationCount() {
+    try {
+        const response = await fetch("/.netlify/functions/counter");
+        const data = await response.json();
+
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (prefersReducedMotion) {
+            donationCount.textContent = data.count;
+        } else {
+            animateCounter(data.count);
+        }
+    } catch (error) {
+        console.error("Error loading donation count:", error);
+    }
 }
 
+loadDonationCount();
 
