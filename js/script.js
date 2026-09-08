@@ -29,25 +29,45 @@ const donationUrl =
         });
     });
 
-    //Hero Carousel
+    // Hero Carousel
 
 const heroSlides = document.querySelectorAll(".hero-slide");
+const hero = document.querySelector(".hero");
 
 let currentSlide = 0;
+let carouselInterval = null;
+
+function showNextSlide() {
+    heroSlides[currentSlide].classList.remove("active");
+
+    currentSlide = (currentSlide + 1) % heroSlides.length;
+
+    heroSlides[currentSlide].classList.add("active");
+}
+
+function startCarousel() {
+    // Prevent multiple timers from running at the same time
+    stopCarousel();
+
+    carouselInterval = setInterval(showNextSlide, 5000);
+}
+
+function stopCarousel() {
+    if (carouselInterval !== null) {
+        clearInterval(carouselInterval);
+        carouselInterval = null;
+    }
+}
 
 if (
+    hero &&
     heroSlides.length > 1 &&
     !window.matchMedia("(prefers-reduced-motion: reduce)").matches
 ) {
+    startCarousel();
 
-setInterval(() => {
-    heroSlides[currentSlide].classList.remove("active");
-
-    currentSlide = (currentSlide +1) % heroSlides.length;
-
-    heroSlides[currentSlide].classList.add("active");
-}, 5000);
-
+    hero.addEventListener("mouseenter", stopCarousel);
+    hero.addEventListener("mouseleave", startCarousel);
 }
 
 // Donation Counter
