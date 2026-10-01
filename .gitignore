@@ -3,3 +3,4 @@
 # Local Netlify folder
 node_modules/
 .netlify/
+deno.lock
